@@ -4,9 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import Navigate from "./pages/common/Navigator";
+import Footer from "./pages/common/Footer";
+
 ReactDOM.render(
   <React.StrictMode>
+    <Navigate />
     <App />
+    <Footer />
   </React.StrictMode>,
   document.getElementById('root')
 );

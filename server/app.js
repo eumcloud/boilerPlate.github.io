@@ -10,18 +10,17 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
-app.set('views', path.join(__dirname, './src/components'));
-app.engine('jsx', expressReactViews.createEngine());
-app.set('view engine', 'jsx');
+// app.set('views', path.join(__dirname, './src/components'));
+// app.engine('jsx', require('express-react-views').createEngine());
+// app.set('view engine', 'jsx');
 
 app.use(express.static(path.join(__dirname, './src/assets')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '/.env')));
 
-app.use('/', routes);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -31,6 +30,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
