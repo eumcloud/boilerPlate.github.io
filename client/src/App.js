@@ -1,24 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
+import Main from './pages/common/Index';
+import MyPage from './pages/mypage/MyPage'; // 마이페이지 거래소버전 (기존경로 : ./components/pages/Mypage)
+import SignIn from './pages/signIn/SignIn';
+import SignUp from "./pages/signUp/SignUp";
+// import Reference from "./pages/Reference";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
       </header>
-    </div>
+      <Routes>
+          {/* <Route path="/" element={<Main />} /> */}
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<SignIn />} />
+          <Route path="/join" element={<SignUp />} />
+          <Route path="/mypage" element={<MyPage />} />
+          {/* <Route path="/logout" element={<Logout />} /> */}
+          <Route path="*" element={<Main />} />
+      </Routes>
+    
+    </>
   );
 }
 
